@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RootStep>
+<RootStep id="_0" indentation="0" linelength="160" name="root" signature="1A25E959C1C1C8187EBBEC29D8F2F246A7A90ADE" version="7.1.2">
+<include>qfs.qft</include>
+<TestSet id="_1" name="Library App">
+<SetupSequence id="_1K" name="Launch Version2">
+<SetGlobalStep id="_1L" varname="client">
+<default>Version2</default>
+</SetGlobalStep>
+<ClientWaiter client="$(client)" id="_1M" local="true" raise="false" resvarname="isSUTRunning" timeout="0">
+<comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+</ClientWaiter>
+<IfSequence id="_1N" name="Launch SUT if not running" test="not $(isSUTRunning)">
+<SUTClientStarter client="$(client)" directory="/Users/sukruthianilkumar/Documents/SVVT Spring 24/SVVT_Ass5/out/production/SVVT_Ass5"
+                  executable="/Users/sukruthianilkumar/Documents/SVVT Spring 24/SVVT_Ass5/out/production/SVVT_Ass5/Version2.sh" id="_1O"/>
+<ClientWaiter client="$(client)" id="_1P"/>
+</IfSequence>
+</SetupSequence>
+<TestCase id="_2" name="First">
+<TestStep id="_N" name="Navigate to View books and back">
+<MouseEventStep clicks="1" client="$(client)" component="buttonView_Books" event="MOUSE_MPRC" id="_O" modifiers="16"/>
+<MouseEventStep clicks="1" client="$(client)" component="buttonBack_to_Home" event="MOUSE_MPRC" id="_P" modifiers="16"/>
+</TestStep>
+<TestStep id="_Z" name="Check Out book and submit">
+<MouseEventStep clicks="1" client="$(client)" component="buttonAdd_Book" event="MOUSE_MPRC" id="_a" modifiers="16"/>
+<MouseEventStep clicks="1" client="$(client)" component="frameLibrary_Management_System.textBook_Title:" event="MOUSE_MPRC" id="_b" modifiers="16" x="309"
+                y="15"/>
+<TextInputStep clear="true" client="$(client)" component="frameLibrary_Management_System.textBook_Title:" id="_c">
+<text>The Day of the Ducchess</text>
+</TextInputStep>
+<MouseEventStep clicks="1" client="$(client)" component="frameLibrary_Management_System.textAuthor_Name:" event="MOUSE_MPRC" id="_d" modifiers="16" x="322"
+                y="10"/>
+<TextInputStep clear="true" client="$(client)" component="frameLibrary_Management_System.textAuthor_Name:" id="_e">
+<text>Sarah Maclean</text>
+</TextInputStep>
+<MouseEventStep clicks="1" client="$(client)" component="frameLibrary_Management_System.textISBN_Number:" event="MOUSE_MPRC" id="_f" modifiers="16" x="330"
+                y="4"/>
+<TextInputStep clear="true" client="$(client)" component="frameLibrary_Management_System.textISBN_Number:" id="_g">
+<text>123456</text>
+</TextInputStep>
+<MouseEventStep clicks="1" client="$(client)" component="frameLibrary_Management_System.listSelect_Genre:@Fiction" event="MOUSE_MPRC" id="_h" modifiers="16"/>
+<MouseEventStep clicks="1" client="$(client)" component="buttonSubmit" event="MOUSE_MPRC" id="_i" modifiers="16"/>
+<ComponentWaiter client="$(client)" component="dialogMessage" id="_j"/>
+<MouseEventStep clicks="1" client="$(client)" component="buttonOK" event="MOUSE_MPRC" id="_k" modifiers="16"/>
+</TestStep>
+<TestStep id="_v" name="Navigate from Add Book to View Book and back">
+<MouseEventStep clicks="1" client="$(client)" component="buttonView_all_books" event="MOUSE_MPRC" id="_w" modifiers="16"/>
+<MouseEventStep clicks="1" client="$(client)" component="buttonAdd_Book2" event="MOUSE_MPRC" id="_x" modifiers="16"/>
+</TestStep>
+<TestStep id="_m" name="Navigate to Add books page and back">
+<MouseEventStep clicks="1" client="$(client)" component="buttonAdd_Book" event="MOUSE_MPRC" id="_n" modifiers="16"/>
+<MouseEventStep clicks="1" client="$(client)" component="buttonBack_to_Home2" event="MOUSE_MPRC" id="_o" modifiers="16"/>
+</TestStep>
+<TestStep id="_13" name="Explore Radio Buttons in View Books Page">
+<MouseEventStep clicks="1" client="$(client)" component="buttonView_Books" event="MOUSE_MPRC" id="_14" modifiers="16"/>
+<MouseEventStep clicks="0" client="$(client)" component="frameLibrary_Management_System.scrollbarVertical" event="MOUSE_MOVED" id="_15" modifiers="0" x="7"
+                y="45"/>
+<MouseEventStep clicks="1" client="$(client)" component="frameLibrary_Management_System.scrollbarVertical" event="MOUSE_PRESSED" id="_16" modifiers="16" x="7"
+                y="45"/>
+<MouseEventStep clicks="1" client="$(client)" component="frameLibrary_Management_System.scrollbarVertical" event="MOUSE_DRAGGED" id="_17" modifiers="16" x="11"
+                y="198"/>
+<MouseEventStep clicks="0" client="$(client)" component="frameLibrary_Management_System.scrollbarVertical" event="MOUSE_RELEASED" id="_18" modifiers="16" x="11"
+                y="198"/>
+<MouseEventStep clicks="0" client="$(client)" component="frameLibrary_Management_System.scrollbarHorizontal" event="MOUSE_MOVED" id="_19" modifiers="0" x="393"
+                y="10"/>
+<MouseEventStep clicks="1" client="$(client)" component="frameLibrary_Management_System.scrollbarHorizontal" event="MOUSE_PRESSED" id="_1A" modifiers="16"
+                x="393" y="10"/>
+<MouseEventStep clicks="1" client="$(client)" component="frameLibrary_Management_System.scrollbarHorizontal" event="MOUSE_DRAGGED" id="_1B" modifiers="16"
+                x="535" y="1"/>
+<MouseEventStep clicks="0" client="$(client)" component="frameLibrary_Management_System.scrollbarHorizontal" event="MOUSE_RELEASED" id="_1C" modifiers="16"
+                x="535" y="1"/>
+<MouseEventStep clicks="0" client="$(client)" component="frameLibrary_Management_System.scrollbarHorizontal" event="MOUSE_MOVED" id="_1D" modifiers="0" x="338"
+                y="6"/>
+<MouseEventStep clicks="1" client="$(client)" component="frameLibrary_Management_System.scrollbarHorizontal" event="MOUSE_PRESSED" id="_1E" modifiers="16"
+                x="338" y="6"/>
+<MouseEventStep clicks="1" client="$(client)" component="frameLibrary_Management_System.panel2" event="MOUSE_DRAGGED" id="_1F" modifiers="16" x="155" y="156"/>
+<MouseEventStep clicks="0" client="$(client)" component="frameLibrary_Management_System.panel2" event="MOUSE_RELEASED" id="_1G" modifiers="16" x="155" y="156"/>
+<MouseEventStep clicks="1" client="$(client)" component="radioAvailable" event="MOUSE_MPRC" id="_1H" modifiers="16"/>
+<MouseEventStep clicks="1" client="$(client)" component="radioChecked_Out" event="MOUSE_MPRC" id="_1I" modifiers="16"/>
+<MouseEventStep clicks="1" client="$(client)" component="radioAll" event="MOUSE_MPRC" id="_1J" modifiers="16"/>
+</TestStep>
+<TestStep id="_1U" name="Home -Add books- View Books- Add books-Home">
+<MouseEventStep clicks="1" client="$(client)" component="frameLibrary_Management_System.panel3" event="MOUSE_MPRC" id="_1V" modifiers="16" x="268" y="37"/>
+<MouseEventStep clicks="1" client="$(client)" component="buttonAdd_Book" event="MOUSE_MPRC" id="_1W" modifiers="16"/>
+<MouseEventStep clicks="1" client="$(client)" component="buttonView_all_books" event="MOUSE_MPRC" id="_1X" modifiers="16"/>
+<MouseEventStep clicks="1" client="$(client)" component="buttonAdd_Book2" event="MOUSE_MPRC" id="_1Y" modifiers="16"/>
+<MouseEventStep clicks="1" client="$(client)" component="buttonBack_to_Home2" event="MOUSE_MPRC" id="_1Z" modifiers="16"/>
+</TestStep>
+</TestCase>
+<CleanupSequence id="_1R" name="Close App">
+<MouseEventStep clicks="1" client="$(client)" component="frameLibrary_Management_System.panel3" event="MOUSE_MPRC" id="_1S" modifiers="16" x="189" y="46"/>
+<WindowEventStep client="$(client)" component="frameLibrary_Management_System" event="WINDOW_CLOSING" id="_1T"/>
+</CleanupSequence>
+</TestSet>
+<PackageRoot id="_3"/>
+<ExtraSequence id="_4">
+<SetupSequence id="_E" name="Launch Version1">
+<SetGlobalStep id="_F" varname="client">
+<default>Version1</default>
+</SetGlobalStep>
+<ClientWaiter client="$(client)" id="_G" local="true" raise="false" resvarname="isSUTRunning" timeout="0">
+<comment>This node checks whether the SUT is already running. The result of this check will be stored in the variable isSUTRunning. The variable itself can contain true if SUT is already running or false if SUT is not running. This variable will be used in the following 'If' node.</comment>
+</ClientWaiter>
+<IfSequence id="_H" name="Launch SUT if not running" test="not $(isSUTRunning)">
+<SUTClientStarter client="$(client)" directory="/Users/sukruthianilkumar/Documents/SVVT Spring 24/SVVT_Ass5/out/production/SVVT_Ass5"
+                  executable="/Users/sukruthianilkumar/Documents/SVVT Spring 24/SVVT_Ass5/out/production/SVVT_Ass5/Version1.sh" id="_I"/>
+<ClientWaiter client="$(client)" id="_J"/>
+</IfSequence>
+</SetupSequence>
+</ExtraSequence>
+<WindowList id="_5">
+<WindowStep class="Window" feature="Library Management System" height="400" id="frameLibrary_Management_System" uid="_K" width="600" x="11" y="87">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">LibraryApp</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Window</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">Library Management System</extrafeature>
+<extrafeature name="qfs:labelTitle" negate="false" regexp="false" state="1">Library Management System</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JFrame</extrafeature>
+<ComponentStep class="Button" classcount="7" classindex="1" feature="View Books" height="29" id="buttonView_Books" uid="_L" width="115" x="243" y="106">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Button</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">View Books</extrafeature>
+<extrafeature name="qfs:labelText" negate="false" regexp="false" state="1">View Books</extrafeature>
+<extrafeature name="qfs:labelTop" negate="false" regexp="false" state="0">Welcome to the Library Management System</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+</ComponentStep>
+<ComponentStep class="Button" classcount="7" classindex="6" feature="Back to Home" height="29" id="buttonBack_to_Home" uid="_M" width="131" x="289" y="366">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Button</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">Back to Home</extrafeature>
+<extrafeature name="qfs:labelText" negate="false" regexp="false" state="1">Back to Home</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+</ComponentStep>
+<ComponentStep class="Button" classcount="7" classindex="0" feature="Add Book" height="29" id="buttonAdd_Book" uid="_Q" width="104" x="248" y="77">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Button</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">Add Book</extrafeature>
+<extrafeature name="qfs:labelText" negate="false" regexp="false" state="1">Add Book</extrafeature>
+<extrafeature name="qfs:labelTop" negate="false" regexp="false" state="0">Welcome to the Library Management System</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+</ComponentStep>
+<ComponentStep class="TextField" classcount="3" classindex="0" height="26" id="frameLibrary_Management_System.textBook_Title:" uid="_R" width="600" x="0"
+               y="63">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JTextField</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">TextField</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">Book Title:</extrafeature>
+<extrafeature name="qfs:labelTop" negate="false" regexp="false" state="1">Book Title:</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JTextField</extrafeature>
+</ComponentStep>
+<ComponentStep class="TextField" classcount="3" classindex="1" height="26" id="frameLibrary_Management_System.textAuthor_Name:" uid="_S" width="600" x="0"
+               y="105">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JTextField</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">TextField</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">Author Name:</extrafeature>
+<extrafeature name="qfs:labelTop" negate="false" regexp="false" state="1">Author Name:</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JTextField</extrafeature>
+</ComponentStep>
+<ComponentStep class="TextField" classcount="3" classindex="2" height="26" id="frameLibrary_Management_System.textISBN_Number:" uid="_T" width="600" x="0"
+               y="147">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JTextField</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">TextField</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">ISBN Number:</extrafeature>
+<extrafeature name="qfs:labelTop" negate="false" regexp="false" state="1">ISBN Number:</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JTextField</extrafeature>
+</ComponentStep>
+<ComponentStep class="Panel" classcount="19" classindex="7" height="23" id="frameLibrary_Management_System.scroll" uid="_U" width="600" x="0" y="212">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JScrollPane</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Panel</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JScrollPane</extrafeature>
+<extrafeature name="qfs:type" negate="false" regexp="false" state="0">Panel:ScrollPanel</extrafeature>
+<ComponentStep class="List" classcount="1" classindex="0" id="frameLibrary_Management_System.listSelect_Genre:" uid="_V">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JList</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">List</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">Select Genre:</extrafeature>
+<extrafeature name="qfs:labelTop" negate="false" regexp="false" state="1">Select Genre:</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JList</extrafeature>
+</ComponentStep>
+</ComponentStep>
+<ComponentStep class="Button" classcount="7" classindex="2" feature="Submit" height="29" id="buttonSubmit" uid="_W" width="88" x="256" y="235">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Button</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">Submit</extrafeature>
+<extrafeature name="qfs:labelText" negate="false" regexp="false" state="1">Submit</extrafeature>
+<extrafeature name="qfs:labelTop" negate="false" regexp="false" state="0">Select Genre:</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+</ComponentStep>
+<ComponentStep class="Button" classcount="7" classindex="4" feature="Back to Home" height="29" id="buttonBack_to_Home2" uid="_l" width="131" x="235" y="293">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Button</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">Back to Home</extrafeature>
+<extrafeature name="qfs:labelText" negate="false" regexp="false" state="1">Back to Home</extrafeature>
+<extrafeature name="qfs:labelTop" negate="false" regexp="false" state="0">Select Genre:</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+</ComponentStep>
+<ComponentStep class="Panel" classcount="19" classindex="6" height="372" id="frameLibrary_Management_System.panel" uid="_p" width="600" x="0" y="28">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JPanel</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Panel</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JPanel</extrafeature>
+</ComponentStep>
+<ComponentStep class="Button" classcount="7" classindex="3" feature="View all books" height="29" id="buttonView_all_books" uid="_t" width="135" x="233" y="264">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Button</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">View all books</extrafeature>
+<extrafeature name="qfs:labelText" negate="false" regexp="false" state="1">View all books</extrafeature>
+<extrafeature name="qfs:labelTop" negate="false" regexp="false" state="0">Select Genre:</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+</ComponentStep>
+<ComponentStep class="Button" classcount="7" classindex="5" feature="Add Book" height="29" id="buttonAdd_Book2" uid="_u" width="104" x="180" y="366">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Button</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">Add Book</extrafeature>
+<extrafeature name="qfs:labelBottom" negate="false" regexp="false" state="0">Verification, Validation and Testing in Software Engineering - Aristides Dasso (678901) [Available]</extrafeature>
+<extrafeature name="qfs:labelText" negate="false" regexp="false" state="1">Add Book</extrafeature>
+<extrafeature name="qfs:labelTop" negate="false" regexp="false" state="0">The Day of the Duchess - Sarah MacLean (123456) [Checked Out]</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+</ComponentStep>
+<ComponentStep class="Panel" classcount="19" classindex="10" height="272" id="frameLibrary_Management_System.scroll2" uid="_y" width="600" x="0" y="50">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JScrollPane</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Panel</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JScrollPane</extrafeature>
+<extrafeature name="qfs:type" negate="false" regexp="false" state="0">Panel:ScrollPanel</extrafeature>
+<ComponentStep class="ScrollBar" classcount="2" classindex="0" feature="Vertical" id="frameLibrary_Management_System.scrollbarVertical" uid="_z" x="0" y="0">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JScrollPane$$ScrollBar</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">ScrollBar</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JScrollPane$$ScrollBar</extrafeature>
+</ComponentStep>
+<ComponentStep class="ScrollBar" classcount="2" classindex="1" feature="Horizontal" id="frameLibrary_Management_System.scrollbarHorizontal" uid="_+" x="0"
+               y="0">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JScrollPane$$ScrollBar</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">ScrollBar</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JScrollPane$$ScrollBar</extrafeature>
+</ComponentStep>
+<ComponentStep class="Panel" classcount="5" classindex="4" height="160" id="frameLibrary_Management_System.panel2" uid="_-" width="727" x="2" y="95">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JPanel</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Panel</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JPanel</extrafeature>
+</ComponentStep>
+</ComponentStep>
+<ComponentStep class="RadioButton" classcount="3" classindex="1" feature="Available" height="23" id="radioAvailable" uid="_10" width="89" x="223" y="327">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JRadioButton</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">RadioButton</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">Available</extrafeature>
+<extrafeature name="qfs:labelText" negate="false" regexp="false" state="1">Available</extrafeature>
+<extrafeature name="qfs:labelTop" negate="false" regexp="false" state="0">Verification, Validation and Testing in Software Engineering - Aristides Dasso (678901) [Available]</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JRadioButton</extrafeature>
+</ComponentStep>
+<ComponentStep class="RadioButton" classcount="3" classindex="2" feature="Checked Out" height="23" id="radioChecked_Out" uid="_11" width="113" x="317" y="327">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JRadioButton</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">RadioButton</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">Checked Out</extrafeature>
+<extrafeature name="qfs:labelText" negate="false" regexp="false" state="1">Checked Out</extrafeature>
+<extrafeature name="qfs:labelTop" negate="false" regexp="false" state="0">Verification, Validation and Testing in Software Engineering - Aristides Dasso (678901) [Available]</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JRadioButton</extrafeature>
+</ComponentStep>
+<ComponentStep class="RadioButton" classcount="3" classindex="0" feature="All" height="23" id="radioAll" uid="_12" width="49" x="169" y="327">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JRadioButton</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">RadioButton</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">All</extrafeature>
+<extrafeature name="qfs:labelText" negate="false" regexp="false" state="1">All</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JRadioButton</extrafeature>
+</ComponentStep>
+<ComponentStep class="Panel" classcount="19" classindex="5" height="372" id="frameLibrary_Management_System.panel3" uid="_1Q" width="600" x="0" y="28">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JPanel</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Panel</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JPanel</extrafeature>
+</ComponentStep>
+</WindowStep>
+<WindowStep class="Dialog" feature="Message" height="173" id="dialogMessage" modal="true" uid="_X" width="770" x="0" y="200">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JDialog</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Dialog</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">Message</extrafeature>
+<extrafeature name="qfs:labelTitle" negate="false" regexp="false" state="1">Message</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JDialog</extrafeature>
+<extrafeature name="qfs:type" negate="false" regexp="false" state="0">Window:Dialog</extrafeature>
+<ComponentStep class="Button" classcount="1" classindex="0" feature="OK" height="29" id="buttonOK" uid="_Y" width="79" x="670" y="127">
+<extrafeature name="qfs:class" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+<extrafeature name="qfs:genericclass" negate="false" regexp="false" state="0">Button</extrafeature>
+<extrafeature name="qfs:labelBest" negate="false" regexp="false" state="0">OK</extrafeature>
+<extrafeature name="qfs:labelText" negate="false" regexp="false" state="1">OK</extrafeature>
+<extrafeature name="qfs:labelTop" negate="false" regexp="false" state="0">Title: The Day of the Ducchess, Author: Sarah Maclean, ISBN: 123456, Available: false, Genre: Fiction</extrafeature>
+<extrafeature name="qfs:systemclass" negate="false" regexp="false" state="0">javax.swing.JButton</extrafeature>
+</ComponentStep>
+</WindowStep>
+</WindowList>
+</RootStep>
